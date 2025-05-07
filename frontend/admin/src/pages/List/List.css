@@ -1,0 +1,87 @@
+/* List.css */
+.list {
+  width: 80%;
+  margin: 0px ;
+  margin-left: 15px ;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.list p {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Search Bar Styling */
+.search-bar {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-bar:focus {
+  border-color: #1e90ff;
+  box-shadow: 0 0 8px rgba(30, 144, 255, 0.2);
+}
+
+.list-table {
+  width: 100%;
+}
+
+.list-table-format {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 0.5fr;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  border: 1px solid #cacaca;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.list-table-format.title {
+  background-color: #f9fafc;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.list-table-format img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.list-table-format:hover {
+  background-color: #f0f4f8;
+}
+
+.cursor {
+  cursor: pointer;
+  color: #e63946;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.cursor:hover {
+  color: #c1272d;
+}
+
+@media (max-width: 600px) {
+  .list-table-format {
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 20px;
+  }
+
+  .list-table-format.title {
+    display: none;
+  }
+}

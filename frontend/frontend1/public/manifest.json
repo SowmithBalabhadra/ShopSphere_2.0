@@ -1,0 +1,10 @@
+{
+    "name": "ShopSphere App",
+    "short_name": "ShopSphere",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "description": "Retail Dashboard for MSMEs and Big Retailers"
+  }
+  

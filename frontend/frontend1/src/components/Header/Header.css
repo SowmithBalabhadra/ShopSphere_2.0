@@ -1,0 +1,32 @@
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.home .image {
+  flex: 1 1 40rem;
+  padding-top: 5rem;
+}
+.home .image img {
+  width: 100%;
+}
+.home .content {
+  flex: 1 1 40rem;
+  padding-left: 5rem;
+}
+.home .content span {
+  font-size: 3rem;
+  color: #666;
+}
+.home .content h3 {
+  font-size: 5rem;
+  color: var(--black);
+}
+.banner-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  padding-left: 170px;
+}

@@ -1,0 +1,85 @@
+/* Orders.css */
+.order-item {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
+    align-items: start;
+    gap: 30px;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #505050;
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .order-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .order-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .order-item-food,
+  .order-item-name {
+    font-weight: 600;
+  }
+  
+  .order-item-name {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  
+  .order-item-address {
+    margin-bottom: 10px;
+  }
+  
+  .order-item select {
+    background-color: white;
+    border: 1px solid black;
+    width: max(12vw, 140px);
+    padding: 10px;
+    outline: none;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+  }
+  
+  .order-item select:hover {
+    background-color:rgba(240, 240, 225, 0.892);
+  }
+  
+  .status-processing {
+    background-color: #ffcccc; /* Light red for Processing order and default */
+  }
+  
+  .status-out-for-delivery {
+    background-color: #ffe8e4; /* Light orange for Out for delivery and Ready to pickup */
+  }
+  
+  .status-delivered {
+    background-color: #d4edda; /* Light green for Delivered */
+  }
+  
+  @media (max-width: 1000px) {
+    .order-item {
+      font-size: 13px;
+      grid-template-columns: 0.5fr 2fr 1fr;
+      padding: 15px 8px;
+    }
+  
+    .order-item select {
+      padding: 5px;
+      font-size: 12px;
+    }
+  
+    .order-item img {
+      width: 40px;
+    }
+  }
+  

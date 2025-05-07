@@ -1,0 +1,223 @@
+.navbar {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 9%;
+    height: 72px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* .navbar .logo {
+    width: 150px;
+} */
+.bck {
+    padding: 0.5rem 1.5rem;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    color: var(--black);
+}
+.bck:hover {
+    background-color: var(--green);
+    color: #fff;
+    border-bottom: 2px solid #49557E;
+  }
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: #49557E;
+    font-size: 18px;
+    font-family: "Nunito", sans-serif;
+}
+
+.navbar-menu .active {
+    padding-bottom: 2px;
+   
+}
+
+  
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.navbar-right a{
+    font-size: 2.5rem;
+    color: var(--black);
+    padding-left: 1rem;
+}
+
+.navbar-right a:hover{
+    color: var(--green);
+}
+.navbar-search-icon{
+position: relative;
+}
+
+.navbar-search-icon .dot{
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: red;
+    border-radius: 5px;
+    top: -8px;
+    right: -8px;
+}
+
+.navbar-right button {
+    background: transparent;
+    font-size: 16px;
+    color: #49557E;
+    border: 1px solid #69cf0b;
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navbar-right button:hover {
+    background: #fff4f2;
+}
+
+.navbar-profile{
+    position: relative;
+
+}
+.navbar-profile-dropdown{
+    
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 1;
+}
+.navbar-profile-dropdown li{
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    cursor: pointer;
+    
+}
+.navbar-profile-dropdown li p{
+    font-size: 15px;
+    text-decoration: none;
+}
+.navbar-profile-dropdown img{
+    width: 20px;
+}
+.navbar-profile-dropdown li:hover{
+    color:green;
+}
+.navbar-profile:hover .navbar-profile-dropdown{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fffeef;
+    padding: 12px 25px;
+    border-radius: 4px;
+    border: 1px solid black;
+    outline: 2px solid white;
+    list-style: none;
+}
+.navbar-profile hr{
+    background-color: gray;
+    height: 1px;
+    border: none;
+}
+@media (max-width:1050px) {
+    .navbar .logo {
+        width: 140px;
+    }
+
+    .navbar-menu {
+        gap: 20px;
+        font-size: 17px;
+    }
+
+    .navbar-right {
+        gap: 30px;
+    }
+
+    .navbar-right img {
+        width: 22px;
+    }
+
+    .navbar-right button {
+        padding: 8px 25px;
+    }
+}
+
+@media (max-width:900px) {
+    .navbar .logo {
+        width: 120px;
+    }
+
+    .navbar-menu {
+        gap: 15px;
+        font-size: 16px;
+    }
+
+    .navbar-right {
+        gap: 20px;
+    }
+
+    .navbar-right img {
+        width: 20px;
+    }
+
+    .navbar-right button {
+        font-size: 15px;
+        padding: 7px 20px;
+    }
+}
+
+@media (max-width:750px) {
+    .navbar-menu {
+        display: none;
+    }
+}/* Container for the search box */
+.search-box-container {
+    position: relative; /* Position relative to allow absolute positioning of suggestions */
+  }
+  
+  /* Suggestions dropdown */
+  .suggestions-list {
+    position: absolute;
+    top: 100%; /* Position it right below the search box */
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-height: 200px; /* Limit height and allow scrolling */
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for better visibility */
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  
+  /* Individual suggestion item */
+  .suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Hover effect for suggestion items */
+  .suggestion-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Optional: Make the input border-radius match with the dropdown */
+  #search-box {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  

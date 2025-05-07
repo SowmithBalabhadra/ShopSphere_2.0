@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital@0;1&display=swap");
+
+:root {
+  --green: #27ae60;
+  --black: #2c2c54;
+}
+
+
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 6.5rem;
+  scroll-behavior: smooth;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--green);
+  color: #fff;
+  padding: 0.8rem 3rem;
+  font-size: 1.7rem;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+.btn:hover {
+  background: var(--black);
+}
+
+
+
+
+.logo {
+    font-family: "Nunito", sans-serif;
+  color: var(--black);
+  font-weight: bolder;
+  font-size: 3rem;
+}
+.logo i {
+  padding-right: 0.5rem;
+  color: var(--green);
+}
+
+
+
+
+
+
+
+
+
+.footer .box-container{
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-left: 110px;
+}
+.footer .box-container .box{
+    padding: 1rem 0;
+    flex: 1 1 25rem;
+    margin-right: 40px;
+}
+.footer .box-container .box .share a{
+    padding: 0;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.footer .box-container .box h3{
+    font-family: "Nunito", sans-serif;
+   
+    
+    transition: all 0.2s linear;
+
+    font-size: 2.5rem;
+    color: var(--black);
+    margin-bottom: 8px;
+}
+.footer .box-container .box p{
+    font-family: "Nunito", sans-serif;
+    font-size: 1.3rem;
+    color: var(--black);
+    padding:  10px 0;
+}
+.footer .box-container .box .links a{
+    font-family: "Nunito", sans-serif;
+    display: block;
+    padding: 2px 0;
+    font-size: 1.7rem;
+    color: #333;
+}
+.footer .box-container .box .links a:hover{
+  text-decoration: underline;
+  color: var(--green);  
+}

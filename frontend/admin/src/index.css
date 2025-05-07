@@ -1,0 +1,58 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+* {
+  padding: 1px;
+  margin: 1px;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.3s ease;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #f4f7fa;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #1e90ff;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 0 5%;
+}
+
+.app-content {
+  display: flex;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+button, input, select, textarea {
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+button:hover, input:focus, select:focus, textarea:focus {
+  border-color: #1e90ff;
+  box-shadow: 0 0 5px rgba(30, 144, 255, 0.2);
+}

@@ -1,0 +1,149 @@
+/* Login Container with Glassmorphism Effect */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background: rgba(240, 248, 255, 0.9); /* Sleek dark semi-transparent */
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  width: 400px;
+  height: 500px;
+  margin: 50px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* Heading Styling */
+h1 {
+  font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+  color: #00FF00; /* Bright green */
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 
+    -0.5px -0.5px 0 #07470cbd, /* Top-left shadow (black) */
+    0.5px -0.5px 0#07470cbd,  /* Top-right shadow (black) */
+    -0.5px 0.5px 0 #07470cbd,  /* Bottom-left shadow (black) */
+    0.5px 0.4px 0 #07470cbd;   /* Bottom-right shadow (black) */
+
+}
+
+/* Login Form Styling */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+}
+
+/* Label Styling */
+label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00FF00; /* Green text for labels */
+  text-shadow: 
+    -0.5px -0.5px 0 #07470cbd, /* Top-left shadow (black) */
+    0.5px -0.5px 0#07470cbd,  /* Top-right shadow (black) */
+    -0.5px 0.5px 0 #07470cbd,  /* Bottom-left shadow (black) */
+    0.5px 0.4px 0 #07470cbd;   /* Bottom-right shadow (black) */
+
+}
+
+/* Input Styling */
+input {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1); /* Subtle frosted effect */
+  color:black;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border: 1px solid #00FF00; /* Bright green highlight */
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+  outline: none;
+}
+
+/* Button Styling */
+button {
+  padding: 15px;
+  font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #004400, #00FF00); /* Dark green to bright green */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #006600, #33FF33); /* Slightly lighter green gradient */
+  box-shadow: 0 6px 20px rgba(0, 255, 0, 0.5);
+}
+
+/* Error Message Styling */
+.error-message {
+  color: #FF3333; /* Bright red for errors */
+  font-size: 0.9rem;
+  font-weight: bold;
+  background: rgba(255, 51, 51, 0.1); /* Light red background */
+  padding: 10px;
+  border: 1px solid rgba(255, 51, 51, 0.4);
+  border-radius: 8px;
+  text-align: center;
+  animation: fade-in 0.5s ease-out;
+}
+
+/* Success Message Styling */
+.success-message {
+  color: #00FF00; /* Bright green for success */
+  font-size: 0.9rem;
+  font-weight: bold;
+  background: rgba(0, 255, 0, 0.1); /* Light green background */
+  padding: 10px;
+  border: 1px solid rgba(0, 255, 0, 0.4);
+  border-radius: 8px;
+  text-align: center;
+  animation: fade-in 0.5s ease-out;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-container {
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+}

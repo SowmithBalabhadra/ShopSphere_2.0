@@ -1,0 +1,40 @@
+name: ShopSphere CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧾 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: 📦 Install Backend Dependencies
+        working-directory: ./backend
+        run: npm install
+
+      - name: 🧪 Run Backend Tests
+        working-directory: ./backend
+        run: npm test
+
+      - name: 📦 Install Frontend (admin) Dependencies
+        working-directory: ./frontend/admin
+        run: npm install
+
+      - name: 🧪 Run Frontend (admin) Tests
+        working-directory: ./frontend/admin
+        run: npm test
+
+      - name: 🏗️ Build Admin Frontend
+        working-directory: ./frontend/admin
+        run: npm run build
