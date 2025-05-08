@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import './Orders.css';
 import { toast } from 'react-toastify';
@@ -9,22 +8,33 @@ const Order = () => {
   const [orders, setOrders] = useState([]);
 
   const fetchAllOrders = async () => {
-    const response = await axios.get(`${url}/api/order/list`);
-    if (response.data.success) {
-      setOrders(response.data.data.reverse());
-    } else {
-      toast.error('Error');
+    try {
+      const response = await axios.get(`${url}/api/order/list`, {
+        withCredentials: true, 
+      });
+      if (response.data.success) {
+        setOrders(response.data.data.reverse());
+      } else {
+        toast.error('Error fetching orders');
+      }
+    } catch (err) {
+      toast.error('Network error');
     }
   };
 
   const statusHandler = async (event, orderId) => {
     const status = event.target.value;
-    const response = await axios.post(`${url}/api/order/status`, {
-      orderId,
-      status,
-    });
-    if (response.data.success) {
-      await fetchAllOrders();
+    try {
+      const response = await axios.post(
+        `${url}/api/order/status`,
+        { orderId, status },
+        { withCredentials: true } // Send cookies
+      );
+      if (response.data.success) {
+        await fetchAllOrders();
+      }
+    } catch (err) {
+      toast.error('Failed to update status');
     }
   };
 

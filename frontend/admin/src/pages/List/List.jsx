@@ -1,3 +1,4 @@
+// List.jsx
 import React, { useEffect, useState } from 'react';
 import './List.css';
 import { url } from '../../assets/assets';
@@ -9,54 +10,41 @@ const List = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredItems, setFilteredItems] = useState([]);
 
-  // Simulated Solr Search: Fetch full data once
   const fetchList = async () => {
-    try {
-      const response = await axios.get(`${url}/api/food/list`);
-      if (response.data.success) {
-        setList(response.data.data);
-        setFilteredItems(response.data.data); // Initial render
-      } else {
-        toast.error('Failed to fetch data');
-      }
-    } catch (error) {
-      toast.error('Server error');
+    const response = await axios.get(`${url}/api/food/list1`);
+    if (response.data.success) {
+      setList(response.data.data);
+      setFilteredItems(response.data.data); // Initialize filtered items
+    } else {
+      toast.error('Error');
     }
   };
 
-  // Simulated Solr Delete
   const removeFood = async (foodId) => {
-    try {
-      const response = await axios.post(`${url}/api/food/remove`, { id: foodId });
-      if (response.data.success) {
-        toast.success(response.data.message);
-        fetchList(); // Refresh after deletion
-      } else {
-        toast.error('Error deleting');
-      }
-    } catch (error) {
-      toast.error('Server error');
+    const response = await axios.post(`${url}/api/food/remove`, {
+      id: foodId,
+    });
+    await fetchList();
+    if (response.data.success) {
+      toast.success(response.data.message);
+    } else {
+      toast.error('Error');
     }
   };
 
-  // Run once on mount
   useEffect(() => {
     fetchList();
   }, []);
 
-  // Simulate Solr Query locally
+  // Handle search input change
   const handleSearchChange = (event) => {
     const query = event.target.value.toLowerCase();
     setSearchQuery(query);
 
-    // Simulated Solr-style fuzzy search with relevance-like filtering
-    const filtered = list.filter((item) => {
-      return (
-        item.name.toLowerCase().includes(query) ||
-        item.category.toLowerCase().includes(query)
-      );
-    });
-
+    // Filter items based on the search query
+    const filtered = list.filter((item) =>
+      item.name.toLowerCase().includes(query) || item.category.toLowerCase().includes(query)
+    );
     setFilteredItems(filtered);
   };
 
@@ -64,10 +52,10 @@ const List = () => {
     <div className="list add flex-col">
       <p>All Foods List</p>
 
-      {/* Simulated Solr Search Bar */}
+      {/* Search Bar */}
       <input
         type="text"
-        placeholder="Search using Solr..."
+        placeholder="Search items..."
         value={searchQuery}
         onChange={handleSearchChange}
         className="search-bar"
@@ -81,14 +69,15 @@ const List = () => {
           <b>Price</b>
           <b>Action</b>
         </div>
-
         {filteredItems.map((item, index) => (
           <div key={index} className="list-table-format">
-            <img src={`${url}/images/${item.image}`} alt={item.name} />
+            <img src={`${url}/images/` + item.image} alt={item.name} />
             <p>{item.name}</p>
             <p>{item.category}</p>
             <p>₹{item.price}</p>
-            <p className="cursor" onClick={() => removeFood(item._id)}>x</p>
+            <p className="cursor" onClick={() => removeFood(item._id)}>
+              x
+            </p>
           </div>
         ))}
       </div>

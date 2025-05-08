@@ -30,6 +30,7 @@ const Add = () => {
 
       const response = await axios.post(`${url}/api/food/add`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
+        withCredentials: true
       });
 
       console.log('📦 Server Response:', response.data);
@@ -47,15 +48,9 @@ const Add = () => {
         toast.error(response.data.message);
       }
     } catch (error) {
-      toast.success("Item added successfully");
-    
-      setTimeout(() => {
-        window.location.reload(); // Refresh the page after 3 seconds
-      }, 3000);
-    
+      toast.error("Failed to add item.");
       console.error("❌ Axios Error:", error);
     }
-    
   };
 
   const onChangeHandler = (event) => {

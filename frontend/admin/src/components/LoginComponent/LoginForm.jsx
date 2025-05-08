@@ -13,7 +13,7 @@ const LoginForm = () => {
 
   const handleAlertAndRedirect = () => {
     alert("Login successful!");
-    window.location.href = "http://localhost:5173/add";
+    window.location.href = "http://localhost:5174/dashboard";
   };
 
   const handleSubmit = async (e) => {
@@ -21,13 +21,17 @@ const LoginForm = () => {
     setError(null);
 
     try {
-      const response = await axios.post("http://localhost:4000/api/admin/login", formData);
+      const response = await axios.post(
+        "http://localhost:4000/api/admin/login",
+        formData,
+        {
+          withCredentials: true, // ✅ Send and receive cookies
+        }
+      );
 
       if (response.status === 200 && response.data.success) {
-        // Store token if needed
-        localStorage.setItem("token", response.data.token);
+        console.log("✅ Token received (cookie set):", response.data);
         handleAlertAndRedirect();
-        console.log("Token:", response.data.token);
       } else {
         setError(response.data.message || "Invalid credentials. Please try again.");
       }

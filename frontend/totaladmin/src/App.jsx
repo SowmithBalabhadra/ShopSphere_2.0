@@ -7,6 +7,7 @@ import AdminsTable from './AdminsTable';
 import ShopOwnersTable from './ShopOwnersTable';
 import ShopTakersTable from './ShopTakersTable';
 import RentsTable from './RentsTable';
+import './App.css';
 
 const Dashboard = () => {
   const [loggedIn, setLoggedIn] = useState(false);

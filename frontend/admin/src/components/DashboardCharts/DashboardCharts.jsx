@@ -5,28 +5,30 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, LineChart, Line, ResponsiveContainer
 } from 'recharts';
 import './DashboardCharts.css';
-//This component is responsible for rendering the dashboard charts using Recharts library. It fetches data from the backend and displays it in various chart formats.
 
 const DashboardCharts = () => {
   const [totalUsers, setTotalUsers] = useState(0);
   const [orderStatusData, setOrderStatusData] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
-  const [newUsersData, setNewUsersData] = useState([]); 
+  const [newUsersData, setNewUsersData] = useState([]);
 
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
   useEffect(() => {
-   
+    // Set Axios to send cookies with every request
+    axios.defaults.withCredentials = true;
+
+    // Simulate user growth
     const generateRandomNewUserData = () => {
       const months = ['Jan 2024', 'Feb 2024', 'Mar 2024', 'Apr 2024', 'May 2024', 'Jun 2024', 'Jul 2024', 'Aug 2024', 'Sep 2024', 'Oct 2024', 'Nov 2024', 'Dec 2024'];
       const randomData = months.map(month => ({
         month: month,
-        newUsers: Math.floor(Math.random() * 5) + 1,  
+        newUsers: Math.floor(Math.random() * 5) + 1,
       }));
       setNewUsersData(randomData);
     };
 
-
+    // Fetch order status data
     const fetchOrderStatusData = async () => {
       try {
         const response = await axios.get('http://localhost:4000/api/order/list');
@@ -36,12 +38,10 @@ const DashboardCharts = () => {
             acc[order.status] = (acc[order.status] || 0) + 1;
             return acc;
           }, {});
-
           const formattedData = Object.entries(statusCounts).map(([status, count]) => ({
             name: status,
             value: count,
           }));
-
           setOrderStatusData(formattedData);
         }
       } catch (error) {
@@ -49,7 +49,7 @@ const DashboardCharts = () => {
       }
     };
 
-
+    // Fetch product category data
     const fetchCategoryData = async () => {
       try {
         const response = await axios.get('http://localhost:4000/api/food/list');
@@ -61,13 +61,11 @@ const DashboardCharts = () => {
             acc[product.category].totalPrice += product.price;
             return acc;
           }, {});
-
           const formattedData = Object.entries(categoryCounts).map(([category, data]) => ({
             category,
             count: data.count,
             averagePrice: data.totalPrice / data.count,
           }));
-
           setCategoryData(formattedData);
         }
       } catch (error) {
@@ -75,8 +73,7 @@ const DashboardCharts = () => {
       }
     };
 
-    
-    generateRandomNewUserData(); 
+    generateRandomNewUserData();
     fetchOrderStatusData();
     fetchCategoryData();
   }, []);
@@ -85,7 +82,7 @@ const DashboardCharts = () => {
     <div className="dashboard-charts">
       <div className="chart-card">
         <h3>Total Users</h3>
-        <div className="total-users">15</div>
+        <div className="total-users">15</div> {/* You can connect this to backend if needed */}
       </div>
 
       <div className="chart-card">
@@ -109,7 +106,7 @@ const DashboardCharts = () => {
           </PieChart>
         </ResponsiveContainer>
       </div>
-      
+
       <div className="chart-card full-width">
         <h3>Category Analysis</h3>
         <ResponsiveContainer width="100%" height={400}>
@@ -138,7 +135,6 @@ const DashboardCharts = () => {
           </LineChart>
         </ResponsiveContainer>
       </div>
-
     </div>
   );
 };
