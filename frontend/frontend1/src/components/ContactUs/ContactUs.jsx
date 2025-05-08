@@ -40,7 +40,7 @@ const AppDownload = () => {
         <div>
             <section className="deal" id="deal"style={{ marginTop: '40px',marginBottom: '20px' }}>
                 <div className="content">
-                    <h3 className="title">Deal of the day</h3>
+                    <h3 className="title">Deal sowmith of the day</h3>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto reiciendis quisquam reprehenderit
                         officiis eligendi esse explicabo repellendus ab obcaecati. Nemo?</p>
                     <div className="count-down">
